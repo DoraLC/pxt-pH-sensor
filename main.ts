@@ -69,8 +69,8 @@ namespace ph_sensor {
     /**
      * Input the raw data and its corresponding pH value.
      * This function will return the pH value by least square method.
-     * @param data Raw data you record, e.g.: [604, 516]
-     * @param ph Corresponding pH value, e.g.: [6.86, 4.01]
+     * @param data Raw data you record; eg: [604, 516]
+     * @param ph Corresponding pH value; eg: [6.86, 4.01]
      */
     //%blockId=pH_value
     //%block="ph value raw data %data|ph %ph|pin %pin_arg"
