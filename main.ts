@@ -73,7 +73,7 @@ namespace ph_sensor {
     //%blockId=pH_value
     //%block="ph value raw data %data|ph %ph|pin %pin_arg"
     //%pin_arg.fieldEditor="gridpicker" pin_arg.fieldOptions.columns=3
-    //%data.defl=[604,516] ph.defl=[6.86,4.01]
+    //%data.defl=[604,516] ph.defl=[6.86,4.01] pin_arg.defl=AnalogPin.P1
     export function ph_value(data: number[], ph: number[], pin_arg: AnalogPin): number {
         return ab_vector(data, ph)[0] + ab_vector(data, ph)[1] * pins.analogReadPin(pin_arg)
     }
