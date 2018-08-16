@@ -69,12 +69,11 @@ namespace ph_sensor {
     /**
      * Input the raw data and its corresponding pH value.
      * This function will return the pH value by least square method.
-     * @param data Raw data you record; eg: [604, 516]
-     * @param ph Corresponding pH value; eg: [6.86, 4.01]
      */
     //%blockId=pH_value
     //%block="ph value raw data %data|ph %ph|pin %pin_arg"
     //%pin_arg.fieldEditor="gridpicker" pin_arg.fieldOptions.columns=3
+    //%data.defl=[604, 516] ph.defl=[6.86, 4.01]
     export function ph_value(data: number[], ph: number[], pin_arg: AnalogPin): number {
         return ab_vector(data, ph)[0] + ab_vector(data, ph)[1] * pins.analogReadPin(pin_arg)
     }
