@@ -1,5 +1,4 @@
 //%color=#04B404 icon="\uf0c3" block="pH_sensor"
-
 namespace ph_sensor {
     /**
      * Get raw data. For calibrating the sensor.
@@ -36,28 +35,28 @@ namespace ph_sensor {
         return returnValue
     }
 
-    function matrix(x: number[], y: number[]): number[][] {
-        return [[value_sum(x), value_square_sum(x)], [x.length, value_sum(x)]]
+    function matrix(x: number[]): number[][] {
+        return [[x.length, value_sum(x)], [value_sum(x), value_square_sum(x)]]
     }
 
     function vector(x: number[], y: number[]): number[] {
-        return [values_times_sum(x, y), value_sum(y)]
+        return [value_sum(y), values_times_sum(x, y)]
     }
 
     function matrix_inveres(x: number[], y: number[]): number[][] {
-        let target = matrix(x, y)
-        let d = target[0][1] * target[1][1] - target[0][1] * target[1][0]
-        let transpose = [[target[1][1], -1 * target[1][0]], [-1 * target[0][1], target[0][0]]]
+        let target = matrix(x)
+        let d = target[0][0] * target[1][1] - target[0][1] * target[1][0]
+        let adj = [[target[1][1], -1 * target[0][1]], [-1 * target[1][0], target[0][0]]]
         let returnValue = [[0, 0], [0, 0]]
-        for (let i = 0; i < 2; i++){
-            for (let j = 0; j < 2; j++){
-                returnValue[i][j] = d * transpose[i][j]
+        for (let i = 0; i < 2; i++) {
+            for (let j = 0; j < 2; j++) {
+                returnValue[i][j] = adj[i][j] / d
             }
         }
         return returnValue
     }
 
-    function ab_vector (x: number[], y: number[]): number[] {
+    export function ab_vector(x: number[], y: number[]): number[] {
         let returnValue = [0, 0]
         for (let i = 0; i < 2; i++) {
             for (let j = 0; j < 2; j++) {
