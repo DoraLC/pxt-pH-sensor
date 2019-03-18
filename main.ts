@@ -93,9 +93,4 @@ namespace ph_sensor {
     export function ph_value(): number{
         return ab_vector(row_data, ref_pH)[0] + ab_vector(row_data, ref_pH)[1] * pins.analogReadPin(readingPin)
     }
-
-    //%block
-    export function ref_data(): number[] {
-        return [0,0]
-    }
 }
