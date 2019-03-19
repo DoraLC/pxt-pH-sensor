@@ -11,7 +11,7 @@ namespace ph_sensor {
         return pins.analogReadPin(pinarg)
     }
 
-    let readingPin: AnalogPin
+    let readingPin: AnalogPin = AnalogPin.P1
     let row_data: number[] = [604, 516]
     let ref_pH: number[] = [6.86, 4.01]
 
