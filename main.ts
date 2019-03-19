@@ -13,8 +13,8 @@ namespace ph_sensor {
 
     let readingPin: AnalogPin
     let reading_pH: number
-    let row_data: number[]
-    let ref_pH: number[]
+    let row_data: number[] = [604, 516]
+    let ref_pH: number[] = [6.86, 4.01]
 
     function value_sum(value: number[]): number {
         let returnValue = 0
@@ -79,8 +79,8 @@ namespace ph_sensor {
     //%block="Calibration | raw data %data|pH %ph|pin %pin_arg"
     //%blockExternalInputs=true
     //%pin_arg.fieldEditor="gridpicker" pin_arg.fieldOptions.columns=3
-    //%data.defl=604 ph.defl=6.86 pin_arg.defl=AnalogPin.P1
-    export function calibrate(data: number[], ph: number[], pin_arg: AnalogPin){
+    //%data.defl=[604,516] ph.defl=[6.86,4.01] pin_arg.defl=AnalogPin.P1
+    export function calibrate(data: number[], ph: number[], pin_arg: AnalogPin) {
         readingPin = pin_arg
         row_data = data
         ref_pH = ph
@@ -90,7 +90,7 @@ namespace ph_sensor {
      * Return the pH value. 
      */
     //%block="pH value"
-    export function ph_value(): number{
+    export function ph_value(): number {
         return ab_vector(row_data, ref_pH)[0] + ab_vector(row_data, ref_pH)[1] * pins.analogReadPin(readingPin)
     }
 }
