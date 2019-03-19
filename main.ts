@@ -76,7 +76,7 @@ namespace ph_sensor {
      * This function will return the pH value by least square method.
      */
     //%blockId=pH_value
-    //%block="Calibration || raw data %data|pH %ph|pin %pin_arg"
+    //%block="Calibration | raw data %data|pH %ph|pin %pin_arg"
     //%blockExternalInputs=true
     //%pin_arg.fieldEditor="gridpicker" pin_arg.fieldOptions.columns=3
     //%pin_arg.defl=AnalogPin.P1
