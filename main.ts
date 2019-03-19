@@ -79,7 +79,7 @@ namespace ph_sensor {
     //%block="Calibration | raw data %data|pH %ph|pin %pin_arg"
     //%blockExternalInputs=true
     //%pin_arg.fieldEditor="gridpicker" pin_arg.fieldOptions.columns=3
-    //%data.defl=[604] ph.defl=[6.86] pin_arg.defl=AnalogPin.P1
+    //%data.defl=604 ph.defl=6.86 pin_arg.defl=AnalogPin.P1
     export function calibrate(data: number[], ph: number[], pin_arg: AnalogPin){
         readingPin = pin_arg
         row_data = data
